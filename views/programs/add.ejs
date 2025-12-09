@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container">
+  <h1>Add New Program</h1>
+
+  <form action="/programs/add" method="POST">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" required>
+    </div>
+
+    <div>
+      <label for="yr_released">Year Released:</label>
+      <input type="number" name="yr_released" id="yr_released" min="1900" max="2100">
+    </div>
+
+    <div>
+      <label for="runtime_minutes">Runtime (minutes):</label>
+      <input type="number" name="runtime_minutes" id="runtime_minutes">
+    </div>
+
+    <div>
+      <label for="format">Format:</label>
+      <select name="format" id="format">
+        <option value="live-action">Live Action</option>
+        <option value="stop-motion">Stop Motion</option>
+        <option value="animation">Animation</option>
+        <option value="hybrid">Hybrid</option>
+        <option value="documentary">Documentary</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="program_rating">Program Rating:</label>
+      <input type="text" name="program_rating" id="program_rating">
+    </div>
+
+    <div>
+      <label for="rating">Rating (decimal):</label>
+      <input type="number" step="0.01" name="rating" id="rating" min="0" max="10">
+    </div>
+
+    <div>
+      <label for="description">Description:</label>
+      <textarea name="description" id="description"></textarea>
+    </div>
+
+    <div>
+      <button type="submit">Add Program</button>
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<h1>Directors</h1>
+
+<!-- Sorting Buttons -->
+<div class="sort-buttons">
+  <a href="/directors/sort/name/ASC">A → Z</a> |
+  <a href="/directors/sort/name/DESC">Z → A</a> |
+  <a href="/directors/sort/programs">Most → Least Programs</a>
+</div>
+
+<!-- Director List -->
+<ul>
+  <% directors.forEach(d => { %>
+    <li>
+      <a href="/directors/<%= d.director_id %>"><%= d.name %></a>
+      <% if (d.program_count !== undefined) { %>
+        - Programs Directed: <%= d.program_count %>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

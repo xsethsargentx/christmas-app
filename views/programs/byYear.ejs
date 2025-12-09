@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+<h1>Programs Sorted by Year</h1>
+
+<div class="sort-buttons">
+  <a href="/programs/year/asc" class="btn">Ascending ⬆️</a>
+  <a href="/programs/year/desc" class="btn">Descending ⬇️</a>
+</div>
+
+<div class="program-list">
+  <% programs.forEach(program => { %>
+    <div class="program-card">
+      <img src="/images/program<%= program.program_id %>.jpg" alt="<%= program.Title %>" class="program-img">
+      <h3><a href="/programs/<%= program.program_id %>"><%= program.Title %></a></h3>
+      <p>Year Released: <%= program.yr_released %></p>
+      <p>Rating: <%= program.program_rating %></p>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>
+
+<style>
+.sort-buttons {
+  margin-bottom: 20px;
+}
+.sort-buttons .btn {
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+}
+.program-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.program-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+.program-img {
+  width: 100%;
+  height: auto;
+}
+</style>

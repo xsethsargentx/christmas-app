@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container">
+  <h1>Add New Actor</h1>
+
+    <form action="/actors" method="POST">
+
+    <label for="name">Full Name</label>
+    <input type="text" name="name" required>
+
+    <label for="birthdate">Birthdate</label>
+    <input type="date" name="birthdate">
+
+    <label for="bio">Bio</label>
+    <textarea name="bio"></textarea>
+
+    <button type="submit">Add Actor</ button>
+    
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

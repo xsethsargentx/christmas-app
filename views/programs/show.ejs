@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container">
+    <h1><%= program.title %></h1>
+
+    <img 
+        src="<%= program.img_url || '/images/default-program.jpg' %>" 
+        alt="<%= program.title %>" 
+        class="program-img"
+        onerror="this.src='/images/default-program.jpg';"
+    >
+
+    <p><strong>Genre:</strong> <%= program.format %></p>
+    <p><strong>Release Year:</strong> <%= program.yr_released %></p>
+    <p><strong>Rating:</strong> <%= program.rating %></p>
+
+    <p><strong>Director:</strong> <%= program.directors || 'Unknown' %></p>
+    <p><strong>Producer:</strong> <%= program.producers || 'Unknown' %></p>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container">
+    <h1>Programs</h1>
+
+    <a href="/programs/add" class="add-btn">Add New Program</a>
+
+    <!-- Display total programs -->
+    <p><strong>Total Programs:</strong> <%= totalPrograms %></p>
+
+    <h3>Filter by Rating</h3>
+    <ul>
+        <li><a href="/programs/rating/PG">Rated PG</a></li>
+        <li><a href="/programs/rating/PG-13">Rated PG-13</a></li>
+        <li><a href="/programs/rating/R">Rated R</a></li>
+    </ul>
+
+    <p>
+      <strong>Sort by Year:</strong>
+      <a href="/programs/year/ASC">Ascending</a> |
+      <a href="/programs/year/DESC">Descending</a>
+    </p>
+
+    <% if (programs && programs.length > 0) { %>
+        <div class="program-grid">
+            <% programs.forEach(program => { %>
+                <div class="program-card">
+                    <img 
+                        src="/images/program<%= program.program_id %>.jpg" 
+                        alt="<%= program.title %>" 
+                        class="program-img"
+                        onerror="this.src='/images/default-program.jpg';"
+                    >
+
+                    <h2>
+                        <a href="/programs/<%= program.program_id %>"><%= program.title %></a>
+                    </h2>
+
+                    <p><strong>Genre:</strong> <%= program.format %></p>
+                    <p><strong>Release Year:</strong> <%= program.yr_released %></p>
+                    <p><strong>Rating:</strong> <%= program.rating %></p>
+
+                    <!-- Edit & Delete buttons -->
+                    <div class="card-actions">
+                        <a href="/programs/edit/<%= program.program_id %>" class="edit-btn">Edit</a>
+                        <form action="/programs/<%= program.program_id %>/delete" method="POST" 
+      class="delete-form" 
+      onsubmit="return confirm('Are you sure you want to delete this program?');">
+    <button type="submit" class="delete-btn">Delete</button>
+</form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No programs found.</p>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,169 @@
+/* ================== DARK MODE & BASE ================== */
+body {
+    background-color: #1c1c1c; /* dark background */
+    color: #e0e0e0; /* light text */
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #88c0ff; /* soft accent for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0af; /* hover accent */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+/* ================== HEADINGS ================== */
+h1, h2, h3 {
+    color: #fff;
+}
+
+/* ================== FILTER & SORT BUTTONS ================== */
+button, .btn, .filter-btn, .add-btn, .edit-btn, .delete-btn {
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* Default dark buttons (for filters, producers, etc.) */
+.btn, .filter-btn {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+.btn:hover, .filter-btn:hover {
+    background-color: #444;
+}
+
+/* Add new program button */
+.add-btn {
+    background-color: #b03f3f;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.add-btn:hover {
+    background-color: #ff5252;
+}
+
+/* Edit/Delete buttons on cards */
+.edit-btn {
+    background-color: #b03f3f;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #ff5252;
+}
+
+.delete-btn {
+    background-color: #333;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #555;
+}
+
+/* ================== PROGRAM GRID ================== */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ================== PROGRAM CARD ================== */
+.program-card {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+}
+
+.program-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+/* Card text */
+.program-card h2 {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.program-card p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* Card actions (edit/delete) */
+.card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* ================== TOTAL PROGRAMS ================== */
+p strong {
+    color: #88c0ff;
+}
+
+/* ================== LISTS ================== */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+ul li a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #2a2a2a;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+ul li a:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+    .program-img {
+        height: 150px;
+    }
+}

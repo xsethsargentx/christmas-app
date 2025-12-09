@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<h2>All Actors</h2>
+<ul>
+  <% actors.forEach(actor => { %>
+    <li>
+      <a href="/actors/<%= actor.actor_id %>"><%= actor.name %></a> 
+      (<%= actor.birthdate %>)
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>

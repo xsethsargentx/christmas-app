@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container">
+    <h1>Edit Program</h1>
+
+    <form action="/programs/edit/<%= program.program_id %>" method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= program.title %>" required>
+
+        <label>Year Released:</label>
+        <input type="number" name="yr_released" value="<%= program.yr_released %>" min="1900" max="2099">
+
+        <label>Runtime (minutes):</label>
+        <input type="number" name="runtime_minutes" value="<%= program.runtime_minutes %>">
+
+        <label>Format:</label>
+        <select name="format">
+            <option value="live-action" <%= program.format === 'live-action' ? 'selected' : '' %>>Live-Action</option>
+            <option value="stop-motion" <%= program.format === 'stop-motion' ? 'selected' : '' %>>Stop-Motion</option>
+            <option value="animation" <%= program.format === 'animation' ? 'selected' : '' %>>Animation</option>
+            <option value="hybrid" <%= program.format === 'hybrid' ? 'selected' : '' %>>Hybrid</option>
+            <option value="documentary" <%= program.format === 'documentary' ? 'selected' : '' %>>Documentary</option>
+        </select>
+
+        <label>Rating:</label>
+        <input type="text" name="program_rating" value="<%= program.program_rating %>">
+
+        <label>Score (decimal):</label>
+        <input type="number" step="0.01" name="rating" value="<%= program.rating %>">
+
+        <label>Description:</label>
+        <textarea name="description"><%= program.description %></textarea>
+
+        <button type="submit">Update Program</button>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

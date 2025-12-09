@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<h2>All Programs</h2>
+<ul>
+  <% programs.forEach(program => { %>
+    <li>
+      <a href="/programs/<%= program.program_id %>"><%= program.title %></a> 
+      (<%= program.yr_released %>) - <%= program.format %>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>

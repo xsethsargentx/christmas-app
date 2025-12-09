@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container actor-detail">
+    <h1><%= actor.name %></h1>
+
+    <% if (actor.birthdate) { %>
+        <p><strong>Birthdate:</strong> <%= actor.birthdate.toISOString().split('T')[0] %></p>
+    <% } else { %>
+        <p><strong>Birthdate:</strong> Unknown</p>
+    <% } %>
+
+    <% if (actor.bio) { %>
+        <p><strong>Bio:</strong> <%= actor.bio %></p>
+    <% } else { %>
+        <p><strong>Bio:</strong> Not available</p>
+    <% } %>
+
+    <a href="/actors">Back to Actors List</a>
+</div>
+
+<%- include('../partials/footer') %>

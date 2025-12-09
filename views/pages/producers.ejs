@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<h2>All Producers</h2>
+<ul>
+  <% producers.forEach(producer => { %>
+    <li>
+      <a href="/producers/<%= producer.producer_id %>"><%= producer.name %></a>
+      (<%= producer.birthdate %>)
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>

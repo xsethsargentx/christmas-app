@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<h1>Streaming Platforms</h1>
+
+<!-- Sort Buttons -->
+<div class="buttons-container" style="margin-bottom:20px;">
+  <a href="/platforms/sort/name/asc" class="button">A → Z</a>
+  <a href="/platforms/sort/name/desc" class="button">Z → A</a>
+  <a href="/platforms/sort/programs" class="button">Most Programs → Least Programs</a>
+</div>
+
+<ul>
+  <% platforms.forEach(pl => { %>
+    <li style="margin-bottom:10px;">
+  <% if (pl.platform_url) { %>
+    <a href="<%= pl.platform_url %>" target="_blank" rel="noopener noreferrer">
+      <%= pl.name %>
+    </a>
+  <% } else { %>
+    <span><%= pl.name %> (No URL)</span>
+  <% } %>
+  <% if (pl.program_count !== undefined) { %>
+    - Programs: <%= pl.program_count %>
+  <% } %>
+</li>
+  <% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<h1>Actors</h1>
+
+<a href="/actors/add">Add New Actor</a>
+
+<!-- SEARCH -->
+<h2>Search Actors</h2>
+<form action="/actors/search" method="GET" style="margin-bottom:20px;">
+  <input type="text" name="q" placeholder="Search by name" required>
+  <button type="submit">Search</button>
+</form>
+
+<!-- SORT BUTTONS -->
+<h2>Sort Actors</h2>
+<a href="/actors/sort/name/asc">A → Z</a>
+<a href="/actors/sort/name/desc">Z → A</a>
+<a href="/actors/sort/birthdate/asc">Oldest → Youngest</a>
+<a href="/actors/sort/birthdate/desc">Youngest → Oldest</a>
+
+<!-- LIST OF ACTORS -->
+<ul style="margin-top: 2em;">
+  <% actors.forEach(actor => { %>
+    <li>
+      <a href="/actors/<%= actor.actor_id %>"><%= actor.name %></a>
+      <% if(actor.birthdate){ %>
+        (<%= actor.birthdate.toISOString().split('T')[0] %>)
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,13 @@
+<h1>Programs Rated <%= rating %></h1>
+
+<ul>
+    <% programs.forEach(program => { %>
+        <li>
+            <a href="/programs/<%= program.program_id %>">
+                <%= program.title %> (<%= program.format %>)
+            </a>
+        </li>
+    <% }) %>
+</ul>
+
+<a href="/programs">Back to all programs</a>

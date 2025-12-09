@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<h2>All Directors</h2>
+<ul>
+  <% directors.forEach(director => { %>
+    <li>
+      <a href="/directors/<%= director.director_id %>"><%= director.name %></a>
+      (<%= director.birthdate %>)
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>
