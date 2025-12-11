@@ -1,13 +1,26 @@
-<h1>Programs Rated <%= rating %></h1>
+<%- include('../partials/header') %>
 
-<ul>
-    <% programs.forEach(program => { %>
-        <li>
-            <a href="/programs/<%= program.program_id %>">
-                <%= program.title %> (<%= program.format %>)
+<div class="page-container">
+    <h1 class="page-title">Rated <%= rating %> Programs</h1>
+
+    <div class="cards-container">
+        <% programs.forEach(program => { %>
+            <a href="/programs/<%= program.program_id %>" class="card-link">
+                <div class="card">
+                    <img 
+                        src="/images/program<%= program.program_id %>.jpg" 
+                        alt="<%= program.title %>" 
+                        class="program-img"
+                        onerror="this.src='/images/default-program.jpg';"
+                    >
+                    <div class="card-content">
+                        <h2 class="card-title"><%= program.title %></h2>
+                        <p class="card-subtitle"><%= program.yr_released %> • <%= program.format %></p>
+                    </div>
+                </div>
             </a>
-        </li>
-    <% }) %>
-</ul>
+        <% }) %>
+    </div>
+</div>
 
-<a href="/programs">Back to all programs</a>
+<%- include('../partials/footer') %>

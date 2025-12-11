@@ -9,7 +9,7 @@ A Node.js + Express + MySQL web app for managing programs, actors, directors, pr
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Environment Variables](#environment-variables)
-- [License](#license)
+<!-- - [License](#license) -->
 
 ---
 
@@ -92,5 +92,5 @@ Environment Variables
 These are loaded in config/db.js via dotenv.
 
 ------
-made with love, 
+made with care, 
 Seth Sargent
